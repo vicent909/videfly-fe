@@ -32,15 +32,15 @@ export default function SideBar() {
             <Image alt="Logo" src={Logo} />
           </div>
           <div className="flex justify-center w-full py-12">
-            <Button className="bg-main text-white btn-main w-full">
+            <Button className="bg-bg-main text-white btn-main w-full">
               Buat Video
               <AddLogo className="AddLogo stroke-white stroke-2" />
             </Button>
           </div>
           <div className="flex flex-col gap-1">
             <div
-              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-secondary ease-in anima ${
-                active === "home" ? "bg-secondary text-secondary-text" : ""
+              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ease-in anima ${
+                active === "home" ? "bg-bg-secondary text-text-secondary" : ""
               }`}
               onClick={() => setActive("home")}
             >
@@ -49,8 +49,8 @@ export default function SideBar() {
             </div>
             <div
               onClick={() => setActive("konten")}
-              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-secondary ${
-                active === "konten" ? "bg-secondary text-secondary-text" : ""
+              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
+                active === "konten" ? "bg-bg-secondary text-text-secondary" : ""
               }`}
             >
               {active === "konten" ? <CalendarIconActive /> : <CalendarIcon />}
@@ -58,8 +58,8 @@ export default function SideBar() {
             </div>
             <div
               onClick={() => setActive("proyek")}
-              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-secondary ${
-                active === "proyek" ? "bg-secondary text-secondary-text" : ""
+              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
+                active === "proyek" ? "bg-bg-secondary text-text-secondary" : ""
               }`}
             >
               {active === "proyek" ? <ProyekIconActive /> : <ProyekIcon />}
@@ -67,8 +67,8 @@ export default function SideBar() {
             </div>
             <div
               onClick={() => setActive("ai")}
-              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-secondary ${
-                active === "ai" ? "bg-secondary text-secondary-text" : ""
+              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
+                active === "ai" ? "bg-bg-secondary text-text-secondary" : ""
               }`}
             >
               {active === "ai" ? <AIIconActive /> : <AIIcon />}
@@ -76,8 +76,8 @@ export default function SideBar() {
             </div>
             <div
               onClick={() => setActive("avatars")}
-              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-secondary ${
-                active === "avatars" ? "bg-secondary text-secondary-text" : ""
+              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
+                active === "avatars" ? "bg-bg-secondary text-text-secondary" : ""
               }`}
             >
               {active === "avatars" ? <AvatarsIconActive /> : <AvatarsIcon />}
@@ -85,8 +85,8 @@ export default function SideBar() {
             </div>
             <div
               onClick={() => setActive('brand')}
-              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-secondary ${
-                active === "brand" ? "bg-secondary text-secondary-text" : ""
+              className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
+                active === "brand" ? "bg-bg-secondary text-text-secondary" : ""
               }`}
             >
               {active === "brand" ? <BrandKitIconActive /> : <BrandKitIcon />}
@@ -96,8 +96,8 @@ export default function SideBar() {
         </div>
         <div className="flex flex-col gap-1">
           <div
-            className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-secondary ${
-              active === "setting" ? "bg-secondary text-secondary-text" : ""
+            className={`flex cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
+              active === "setting" ? "bg-bg-secondary text-text-secondary" : ""
             }`}
             onClick={() => setActive("setting")}
           >
@@ -106,10 +106,10 @@ export default function SideBar() {
           </div>
           <div
             onClick={() => alert("logout")}
-            className={`flex cursor-pointer w-full nav-logout gap-3 px-4 py-3 rounded-xl hover:bg-logout-hover`}
+            className={`flex cursor-pointer w-full nav-logout gap-3 px-4 py-3 rounded-xl hover:bg-hover-logout`}
           >
             <LogoutIcon />
-            <p className="text-logout">Keluar</p>
+            <p className="text-text-logout">Keluar</p>
           </div>
         </div>
       </div>

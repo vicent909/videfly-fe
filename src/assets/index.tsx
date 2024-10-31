@@ -15,6 +15,7 @@ import HomeActive from "./home-03-active.svg";
 import Setting from "./settings-02.svg";
 import SettingActive from "./settings-02-active.svg";
 import LogoutIcon from "./logout-03.svg";
+import NotificationIcon from "./notification-01.svg";
 
 export {
   Logo,
@@ -33,5 +34,6 @@ export {
   AIIconActive,
   AvatarsIconActive,
   BrandKitIconActive,
-  SettingActive
+  SettingActive,
+  NotificationIcon,
 };

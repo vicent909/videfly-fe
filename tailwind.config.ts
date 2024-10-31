@@ -13,11 +13,19 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        'main': '#703BE7',
-        'secondary': '#F1EBFD',
-        'secondary-text': '#8D62EC',
-        'logout': '#FF6D6D',
-        'logout-hover': '#ffdede'
+        'bg': {
+          'main': '#703BE7',
+          'notif-hover': '#D3C2F8',
+          'secondary': '#F1EBFD',
+        },
+        'text': {
+          'secondary': '#8D62EC',
+          'logout': '#FF6D6D',
+          'orange': '#FE846F'
+        },
+        'hover': {
+          'logout': '#ffdede',
+        }
       },
     },
   },
