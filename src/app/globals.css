@@ -40,36 +40,6 @@ body {
   }
 }
 
-.active-bg{
-  background-color: var(--secondary-background);
-}
-
-.active-text{
-  color: var(--secondary-text);
-}
-
-.logout-text{
-  color: var(--logout-text);
-}
-
-.nav-item{
-  transition: 0.2s ease;
-}
-.nav-item:hover{
-  /* color: var(--secondary-text); */
-  background-color: var(--secondary-background);
-}
-
-.nav-logout:hover{
-  /* color: var(--secondary-text); */
-  background-color: #ffdede;
-}
-
-.btn-main{
-  background-color: var(--main-background);
-  color: var(--main-text);
-}
-
 .btn-main:hover{
   .AddLogo{
     animation: rotate 0.8s ease-in-out;
