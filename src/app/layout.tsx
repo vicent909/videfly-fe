@@ -42,10 +42,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${nunito.className} ${poppins.className} antialiased`}
       >
         <div className="flex w-full">
-          <div className="w-1/6">
+          <div className="hidden lg:inline w-1/6">
             <SideBar />
           </div>
-          <div className="w-5/6">
+          <div className="w-full lg:w-5/6">
             <Navbar />
             {children}
           </div>
