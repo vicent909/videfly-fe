@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&display=swap');
 
 :root {
   --background: #ffffff;
@@ -39,4 +40,14 @@ body {
   .AddLogo{
     animation: rotate 0.8s ease-in-out;
   } 
+}
+
+.scrollbar-hidden {
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  overflow-x: auto;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; 
 }

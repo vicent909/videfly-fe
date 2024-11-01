@@ -21,11 +21,18 @@ const config: Config = {
         'text': {
           'secondary': '#8D62EC',
           'logout': '#FF6D6D',
-          'orange': '#FE846F'
+          'orange': '#FE846F',
+          'dark': '#111336',
+          'gray': '#8A8A8A'
         },
         'hover': {
           'logout': '#ffdede',
-        }
+          'main': '#6636D2'
+        },
+      },
+      fontFamily: {
+        nunito: ['Nunito', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
   },

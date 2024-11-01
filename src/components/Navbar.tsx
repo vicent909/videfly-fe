@@ -7,8 +7,8 @@ export default function Navbar() {
   return (
     <div className="w-full flex items-center justify-end px-10 py-2 gap-6">
       <div className="flex items-center gap-4">
-        <p className="text-text-orange">Sisa 5 kredit</p>
-        <Button className="bg-gradient-to-r from-text-orange from-35% to-bg-main text-white">Upgrade plan</Button>
+        <p className="text-text-orange font-semibold">Sisa 5 kredit</p>
+        <Button className="bg-gradient-to-r from-text-orange from-20% to-bg-main to-100% text-white font-semibold hover:scale-x-95">Upgrade plan</Button>
       </div>
       <div className="flex items-center gap-2">
         <NotificationIcon className="hover:bg-bg-notif-hover rounded-xl" />

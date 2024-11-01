@@ -16,6 +16,7 @@ import Setting from "./settings-02.svg";
 import SettingActive from "./settings-02-active.svg";
 import LogoutIcon from "./logout-03.svg";
 import NotificationIcon from "./notification-01.svg";
+import MusicIcon from "./music-note-03.svg";
 
 export {
   Logo,
@@ -36,4 +37,5 @@ export {
   BrandKitIconActive,
   SettingActive,
   NotificationIcon,
+  MusicIcon
 };
