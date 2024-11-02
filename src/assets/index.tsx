@@ -17,6 +17,7 @@ import SettingActive from "./settings-02-active.svg";
 import LogoutIcon from "./logout-03.svg";
 import NotificationIcon from "./notification-01.svg";
 import MusicIcon from "./music-note-03.svg";
+import LogoMini from "./logo-mini.png";
 
 export {
   Logo,
@@ -37,5 +38,6 @@ export {
   BrandKitIconActive,
   SettingActive,
   NotificationIcon,
-  MusicIcon
+  MusicIcon,
+  LogoMini
 };

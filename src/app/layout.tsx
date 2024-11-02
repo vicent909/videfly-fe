@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Nunito, Poppins } from 'next/font/google';
+import { Nunito, Poppins } from "next/font/google";
 import "./globals.css";
 import SideBar from "@/components/SideBar";
 import Navbar from "@/components/Navbar";
+import { GlobalProvider } from "@/contexts/GlobalContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,13 +18,13 @@ const geistMono = localFont({
 });
 
 const nunito = Nunito({
-  subsets: ['latin'],
-  weight: ['300', '400', '600', '700', '800'],
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700", "800"],
 });
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '600', '700', '800'],
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -41,15 +42,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${nunito.className} ${poppins.className} antialiased`}
       >
-        <div className="flex w-full">
-          <div className="hidden lg:inline w-1/6">
-            <SideBar />
+        <GlobalProvider>
+          <div className="flex w-full">
+            <div className="hidden lg:inline w-1/6">
+              <SideBar />
+            </div>
+            <div className="w-full lg:w-5/6">
+              <Navbar />
+              {children}
+            </div>
           </div>
-          <div className="w-full lg:w-5/6">
-            <Navbar />
-            {children}
-          </div>
-        </div>
+        </GlobalProvider>
       </body>
     </html>
   );

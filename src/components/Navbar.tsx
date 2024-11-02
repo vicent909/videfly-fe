@@ -1,5 +1,5 @@
 "use client";
-import { NotificationIcon, ProyekIcon } from "@/assets";
+import { LogoMini, NotificationIcon, ProyekIcon } from "@/assets";
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -7,7 +7,7 @@ import SideBar from "./SideBar";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const sidebarVariants = {
     open: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
     closed: {
@@ -20,11 +20,9 @@ export default function Navbar() {
     closed: { opacity: 0, pointerEvents: "none" },
   };
   return (
-    <div className="w-full flex items-center justify-between lg:justify-end px-10 py-2">
-      <div className="lg:hidden">
-        <div className="cursor-pointer" onClick={() => setOpen(!open)}>
-          <ProyekIcon />
-        </div>
+    <div className="w-full flex items-center justify-between lg:justify-end p-4 lg:px-10 lg:py-2">
+      <div className="lg:hidden flex items-center justify-between w-full z-50">
+        <Image alt="logo-mini" src={LogoMini} />
         <motion.div
           className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40"
           variants={overlayVariants}
@@ -40,6 +38,9 @@ export default function Navbar() {
         >
           <SideBar />
         </motion.div>
+        <div className="cursor-pointer" onClick={() => setOpen(!open)}>
+          <ProyekIcon />
+        </div>
       </div>
       <div className="hidden lg:flex gap-6">
         <div className="flex items-center gap-4">
