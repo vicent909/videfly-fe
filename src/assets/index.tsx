@@ -25,6 +25,10 @@ import Cancel from "./cancel-01.svg";
 import Paint from "./fluent_paint-bucket-16-regular.svg";
 import Plus from "./majesticons_plus-line.svg";
 import DownChevron from "./down.svg";
+import Edit from "./edit-01.svg";
+import Etc from "./pepicons-pencil_dots-x.svg";
+import Download from "./lucide_download.svg";
+import Checklist from "./iconamoon_check.svg";
 
 export {
   Logo,
@@ -53,5 +57,9 @@ export {
   Cancel,
   Paint,
   Plus,
-  DownChevron
+  DownChevron,
+  Edit, 
+  Etc, 
+  Download,
+  Checklist
 };
