@@ -1,6 +1,8 @@
 "use client";
+import BrandKit from "@/components/BrandKit";
 import ButtonMain from "@/components/ButtonMain";
 import Kit from "@/components/Kit";
+import ModalDownload from "@/components/ModalDownload";
 import { useGlobalContext } from "@/contexts/GlobalContext";
 import {
   Button,
@@ -19,7 +21,8 @@ import { useState } from "react";
 export default function Home() {
   const { toggleState } = useGlobalContext();
   const [active, setActive] = useState("all");
-  const route = useRouter()
+  const route = useRouter();
+  const [modalDownload, setModalDownload] = useState(false)
 
   const data = [
     {
@@ -227,9 +230,9 @@ export default function Home() {
                           <div className="pt-4 flex flex-wrap overflow-scroll scrollbar-hide h-full content-start gap-6">
                             {data.map((e, i) => {
                               return (
-                                <div>
+                                <div key={i}>
                                   <Kit
-                                    key={e.title}
+                                    key={i}
                                     title={e.title}
                                     images={e.images}
                                     music={e.music}
@@ -272,14 +275,19 @@ export default function Home() {
           Desain setiap detail brand kit Anda agar selaras dengan karateristik
           <br /> bisnis anda
         </p>
+        <div className="mt-4">
+          <BrandKit onDownloadClick={() => setModalDownload(true)} />
+          <ModalDownload isOpen={modalDownload} closeModal={() => setModalDownload(false)} />
+        </div>
       </div>
-      <div className="mt-4"> 
+      <div className="mt-4">
         <ButtonMain
           name={"Buat brand kit"}
           onClick={() => route.push("/make-kit")}
           isLoading={false}
         />
       </div>
+      
     </div>
   );
 }

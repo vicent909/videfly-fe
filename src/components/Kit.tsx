@@ -5,7 +5,7 @@ const a = 'https://s3-alpha-sig.figma.com/img/8ed2/22ba/34a070678491d6c02e51b8c2
 
 export default function Kit({ images, title, colors, music }: { images: string, title: string, colors: string[], music: string }) {
   return (
-    <div className="w-56 h-28 rounded-2xl border-1 border-gray-200 overflow-hidden flex-shrink-0">
+    <div className="w-[220px] h-[128px] rounded-2xl border-1 border-gray-200 overflow-hidden flex-shrink-0">
       <div className={`bg-cover h-1/2 w-full bg-center flex justify-center items-center`}
         style={{ backgroundImage: `url(${images ? images : a})` }}
       >
