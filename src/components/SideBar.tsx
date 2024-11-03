@@ -22,6 +22,7 @@ import {
   Setting,
   SettingActive,
 } from "@/assets";
+import Link from "next/link";
 
 export default function SideBar() {
   const [active, setActive] = useState("home");
@@ -52,21 +53,23 @@ export default function SideBar() {
             </Button>
           </div>
           <div className="flex flex-col gap-1">
-            <div
-              className={`flex transition ease cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
-                active === "home"
-                  ? "bg-bg-secondary text-text-secondary font-semibold"
-                  : ""
-              }`}
-              onClick={() => setActive("home")}
-            >
-              {active === "home" ? (
-                <HomeActive className="flex-shrink-0" />
-              ) : (
-                <Home className="flex-shrink-0" />
-              )}
-              <p>Beranda</p>
-            </div>
+            <Link href={"/"}>
+              <div
+                className={`flex transition ease cursor-pointer w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary ${
+                  active === "home"
+                    ? "bg-bg-secondary text-text-secondary font-semibold"
+                    : ""
+                }`}
+                onClick={() => setActive("home")}
+              >
+                {active === "home" ? (
+                  <HomeActive className="flex-shrink-0" />
+                ) : (
+                  <Home className="flex-shrink-0" />
+                )}
+                <p>Beranda</p>
+              </div>
+            </Link>
             <div
               onClick={() => {
                 setActive("konten");

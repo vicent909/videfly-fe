@@ -17,13 +17,16 @@ const config: Config = {
           'main': '#703BE7',
           'notif-hover': '#D3C2F8',
           'secondary': '#F1EBFD',
+          'border': '#ECECEC'
         },
         'text': {
           'secondary': '#8D62EC',
           'logout': '#FF6D6D',
           'orange': '#FE846F',
           'dark': '#111336',
-          'gray': '#8A8A8A'
+          'gray': '#8A8A8A',
+          'violet1': '#703BE3',
+          'gray-2': '#545454',
         },
         'hover': {
           'logout': '#ffdede',

@@ -17,6 +17,14 @@ import SettingActive from "./settings-02-active.svg";
 import LogoutIcon from "./logout-03.svg";
 import NotificationIcon from "./notification-01.svg";
 import MusicIcon from "./music-note-03.svg";
+import LogoMini from "./logo-mini.png";
+import LeftChevron from "./left.svg";
+import AddImage from "./solar_gallery-add-linear.svg";
+import LogoBoa from "./Logo BoA.png";
+import Cancel from "./cancel-01.svg";
+import Paint from "./fluent_paint-bucket-16-regular.svg";
+import Plus from "./majesticons_plus-line.svg";
+import DownChevron from "./down.svg";
 
 export {
   Logo,
@@ -37,5 +45,13 @@ export {
   BrandKitIconActive,
   SettingActive,
   NotificationIcon,
-  MusicIcon
+  MusicIcon,
+  LogoMini,
+  LeftChevron,
+  AddImage,
+  LogoBoa,
+  Cancel,
+  Paint,
+  Plus,
+  DownChevron
 };

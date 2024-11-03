@@ -1,10 +1,26 @@
 "use client";
 import ButtonMain from "@/components/ButtonMain";
 import Kit from "@/components/Kit";
-import { Button } from "@nextui-org/react";
-import { p } from "framer-motion/client";
+import { useGlobalContext } from "@/contexts/GlobalContext";
+import {
+  Button,
+  useDisclosure,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@nextui-org/react";
+import { div, p } from "framer-motion/client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Home() {
+  const { toggleState } = useGlobalContext();
+  const [active, setActive] = useState("all");
+  const route = useRouter()
+
   const data = [
     {
       title: "Creative Vibes",
@@ -63,6 +79,7 @@ export default function Home() {
       colors: ["#D08C60", "#A9C2D8", "#F5F5DC"],
     },
   ];
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div className="px-8 lg:px-11 py-4 lg:py-9 min-h-screen">
       <div>
@@ -75,10 +92,165 @@ export default function Home() {
         </p>
       </div>
       <div className="mt-9">
-        <p className="font-nunito font-bold text-2xl text-text-dark mb-2">
-          Rekomendasi Brand Kit
-        </p>
-        <div className="flex gap-4 w-full flex-nowrap overflow-scroll scrollbar-hidden pb-2">
+        <div className="flex justify-between">
+          <p className="font-nunito font-bold text-2xl text-text-dark mb-2">
+            Rekomendasi Brand Kit
+          </p>
+          <>
+            <div
+              onClick={() => onOpen()}
+              className="cursor-pointer hover:text-text-secondary"
+            >
+              Lainnya
+            </div>
+            <Modal
+              placement="center"
+              size={"5xl"}
+              isOpen={isOpen}
+              onClose={onClose}
+              className="!h-3/4 overflow-scroll scrollbar-hide"
+            >
+              <ModalContent>
+                {(onClose) => (
+                  <>
+                    {/* <ModalHeader className="flex flex-col gap-1"></ModalHeader> */}
+                    <div className="h-full">
+                      <div className="flex flex-col lg:flex-row h-full">
+                        <div className="flex mb-2 bg-red p-6 lg:mb-0 lg:flex-col lg:h-full gap-1 border-r-1 pr-2 flex-shrink-0 overflow-scroll scrollbar-hide">
+                          <div
+                            onClick={() => {
+                              setActive("all");
+                            }}
+                            className={`flex cursor-pointer transition ease w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary min-w-fit ${
+                              active === "all"
+                                ? "bg-bg-secondary text-text-secondary font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <p>Semua brand kit</p>
+                          </div>
+                          <div
+                            onClick={() => {
+                              setActive("rekomendasi");
+                            }}
+                            className={`flex cursor-pointer transition ease w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary min-w-fit ${
+                              active === "rekomendasi"
+                                ? "bg-bg-secondary text-text-secondary font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <p>Rekomendasi</p>
+                          </div>
+                          <div
+                            onClick={() => {
+                              setActive("nature");
+                            }}
+                            className={`flex cursor-pointer transition ease w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary min-w-fit ${
+                              active === "nature"
+                                ? "bg-bg-secondary text-text-secondary font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <p>Nature & Calm</p>
+                          </div>
+                          <div
+                            onClick={() => {
+                              setActive("elegance");
+                            }}
+                            className={`flex cursor-pointer transition ease w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary min-w-fit ${
+                              active === "elegance"
+                                ? "bg-bg-secondary text-text-secondary font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <p>Elegance & Classics</p>
+                          </div>
+                          <div
+                            onClick={() => {
+                              setActive("vintage");
+                            }}
+                            className={`flex cursor-pointer transition ease w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary min-w-fit ${
+                              active === "vintage"
+                                ? "bg-bg-secondary text-text-secondary font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <p>Vintage</p>
+                          </div>
+                          <div
+                            onClick={() => {
+                              setActive("fun");
+                            }}
+                            className={`flex cursor-pointer transition ease w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary min-w-fit ${
+                              active === "fun"
+                                ? "bg-bg-secondary text-text-secondary font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <p>Fun</p>
+                          </div>
+                          <div
+                            onClick={() => {
+                              setActive("tropical");
+                            }}
+                            className={`flex cursor-pointer transition ease w-full nav-item gap-3 px-4 py-3 rounded-xl hover:bg-bg-secondary min-w-fit ${
+                              active === "tropical"
+                                ? "bg-bg-secondary text-text-secondary font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <p>Tropical</p>
+                          </div>
+                        </div>
+                        <div className="p-6 pt-0 lg:pt-6">
+                          <div className="flex justify-end">
+                            <label className="input input-bordered flex items-center gap-2 bg-bg-secondary h-10 px-4 rounded-xl w-full lg:w-1/3">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 16 16"
+                                fill="currentColor"
+                                className="h-4 w-4 opacity-70"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <input
+                                type="text"
+                                placeholder="Search"
+                                className="bg-transparent w-full h-full outline-none"
+                              />
+                            </label>
+                          </div>
+                          <div className="pt-4 flex flex-wrap overflow-scroll scrollbar-hide h-full content-start gap-6">
+                            {data.map((e, i) => {
+                              return (
+                                <div>
+                                  <Kit
+                                    key={e.title}
+                                    title={e.title}
+                                    images={e.images}
+                                    music={e.music}
+                                    colors={e.colors}
+                                  />
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* <ModalFooter>
+                    </ModalFooter> */}
+                  </>
+                )}
+              </ModalContent>
+            </Modal>
+          </>
+        </div>
+        <div className="flex gap-4 w-full flex-nowrap overflow-scroll scrollbar-hidden pb-2 ">
           {data.map((e, i) => {
             return (
               <Kit
@@ -101,10 +273,11 @@ export default function Home() {
           <br /> bisnis anda
         </p>
       </div>
-      <div className="mt-4">
+      <div className="mt-4"> 
         <ButtonMain
           name={"Buat brand kit"}
-          onClick={() => console.log("btn")}
+          onClick={() => route.push("/make-kit")}
+          isLoading={false}
         />
       </div>
     </div>
