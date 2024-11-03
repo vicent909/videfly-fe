@@ -13,11 +13,13 @@ import {
 } from "@nextui-org/react";
 import { div, p } from "framer-motion/client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
   const { toggleState } = useGlobalContext();
   const [active, setActive] = useState("all");
+  const route = useRouter()
 
   const data = [
     {
@@ -271,10 +273,11 @@ export default function Home() {
           <br /> bisnis anda
         </p>
       </div>
-      <div className="mt-4">
+      <div className="mt-4"> 
         <ButtonMain
           name={"Buat brand kit"}
-          onClick={() => console.log("btn")}
+          onClick={() => route.push("/make-kit")}
+          isLoading={false}
         />
       </div>
     </div>
