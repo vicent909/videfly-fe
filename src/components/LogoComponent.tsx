@@ -1,6 +1,5 @@
 import React from "react";
 import ImageDeleteBtn from "./ImageDeleteBtn";
-import Image from "next/image";
 
 export default function LogoComponent({type, image}: {type: string, image: string}) {
   return (

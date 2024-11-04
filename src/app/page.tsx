@@ -3,23 +3,15 @@ import BrandKit from "@/components/BrandKit";
 import ButtonMain from "@/components/ButtonMain";
 import Kit from "@/components/Kit";
 import ModalDownload from "@/components/ModalDownload";
-import { useGlobalContext } from "@/contexts/GlobalContext";
 import {
-  Button,
   useDisclosure,
   Modal,
   ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
 } from "@nextui-org/react";
-import { div, p } from "framer-motion/client";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
-  const { toggleState } = useGlobalContext();
   const [active, setActive] = useState("all");
   const route = useRouter();
   const [modalDownload, setModalDownload] = useState(false)
@@ -114,7 +106,7 @@ export default function Home() {
               className="!h-3/4 overflow-scroll scrollbar-hide"
             >
               <ModalContent>
-                {(onClose) => (
+                {() => (
                   <>
                     {/* <ModalHeader className="flex flex-col gap-1"></ModalHeader> */}
                     <div className="h-full">
@@ -254,7 +246,7 @@ export default function Home() {
           </>
         </div>
         <div className="flex gap-4 w-full flex-nowrap overflow-scroll scrollbar-hidden pb-2 ">
-          {data.map((e, i) => {
+          {data.map((e) => {
             return (
               <Kit
                 key={e.title}

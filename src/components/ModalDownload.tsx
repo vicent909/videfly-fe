@@ -1,4 +1,4 @@
-import { Modal, ModalContent, useDisclosure } from "@nextui-org/react";
+import { Modal, ModalContent } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import ButtonMain from "./ButtonMain";
 import ButtonSecondary from "./ButtonSecondary";
@@ -33,7 +33,7 @@ export default function ModalDownload({
         className="h-[260px] flex justify-center"
       >
         <ModalContent>
-          {(onClose) => (
+          {() => (
             <div>
               {download ? (
                 <div className="px-8 flex flex-col gap-9 items-center justify-center">

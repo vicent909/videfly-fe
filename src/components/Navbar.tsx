@@ -4,7 +4,7 @@ import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import React, { useState } from "react";
 import SideBar from "./SideBar";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function Navbar() {
       transition: { type: "spring", stiffness: 300, damping: 30 },
     },
   };
-  const overlayVariants: any = {
+  const overlayVariants: Variants = {
     open: { opacity: 1, pointerEvents: "auto" },
     closed: { opacity: 0, pointerEvents: "none" },
   };
