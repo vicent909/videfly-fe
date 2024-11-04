@@ -1,6 +1,5 @@
 "use client";
 import { LogoMini, NotificationIcon, ProyekIcon } from "@/assets";
-import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import React, { useState } from "react";
 import SideBar from "./SideBar";
@@ -45,9 +44,26 @@ export default function Navbar() {
       <div className="hidden lg:flex gap-6">
         <div className="flex items-center gap-4">
           <p className="text-text-orange font-semibold">Sisa 5 kredit</p>
-          <Button className="bg-gradient-to-r from-text-orange from-20% to-bg-main to-100% text-white font-semibold hover:scale-x-95">
+          <motion.div
+            animate={{
+              backgroundImage: [
+                "linear-gradient(135deg, #f27121, #EE5938)", // Color 1
+                "linear-gradient(135deg, #E94057, #af3e9c)", // Color 2
+                "linear-gradient(135deg, #43cea2, #185a9d)", // Color 3
+                "linear-gradient(135deg, #703be7, #f27121)", // Back to Color 1
+                "linear-gradient(135deg, #f27121, #f27121)", // Back to Color 1
+              ],
+            }}
+            transition={{
+              duration: 8, // Control the duration of the animation
+              ease: "linear",
+              repeat: Infinity, // Repeat infinitely
+              repeatType: "loop",
+            }}
+            className="bg-gradient-to-r from-text-orange from-20% to-bg-main to-100% py-2 px-4 rounded-xl cursor-pointer text-white font-semibold hover:scale-x-95"
+          >
             Upgrade plan
-          </Button>
+          </motion.div>
         </div>
         <div className="flex items-center gap-2">
           <NotificationIcon className="hover:bg-bg-notif-hover rounded-xl" />
