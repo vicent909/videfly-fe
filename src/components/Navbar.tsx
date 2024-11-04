@@ -45,24 +45,32 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <p className="text-text-orange font-semibold">Sisa 5 kredit</p>
           <motion.div
-            animate={{
-              backgroundImage: [
-                "linear-gradient(135deg, #f27121, #EE5938)", // Color 1
-                "linear-gradient(135deg, #E94057, #af3e9c)", // Color 2
-                "linear-gradient(135deg, #43cea2, #185a9d)", // Color 3
-                "linear-gradient(135deg, #703be7, #f27121)", // Back to Color 1
-                "linear-gradient(135deg, #f27121, #f27121)", // Back to Color 1
-              ],
-            }}
-            transition={{
-              duration: 8, // Control the duration of the animation
-              ease: "linear",
-              repeat: Infinity, // Repeat infinitely
-              repeatType: "loop",
-            }}
-            className="bg-gradient-to-r from-text-orange from-20% to-bg-main to-100% py-2 px-4 rounded-xl cursor-pointer text-white font-semibold hover:scale-x-95"
+            className="rounded-xl"
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
           >
-            Upgrade plan
+            <motion.div
+              animate={{
+                backgroundImage: [
+                  "linear-gradient(135deg, #f27121, #f27121)", 
+                  "linear-gradient(135deg, #f27121, #EE5938)", 
+                  "linear-gradient(135deg, #EE5938, #E94057)", 
+                  "linear-gradient(135deg, #E94057, #af3e9c)", 
+                  "linear-gradient(135deg, #af3e9c, #703Be7)", 
+                  "linear-gradient(135deg, #703Be7, #f27121)",
+                  "linear-gradient(135deg, #f27121, #f27121)",
+                ],
+              }}
+              transition={{
+                duration: 6, // Control the duration of the animation
+                ease: "linear",
+                repeat: Infinity, // Repeat infinitely
+                repeatType: "loop",
+              }}
+              className="py-2 px-4 rounded-xl cursor-pointer text-white font-semibold"
+            >
+              Upgrade plan
+            </motion.div>
           </motion.div>
         </div>
         <div className="flex items-center gap-2">

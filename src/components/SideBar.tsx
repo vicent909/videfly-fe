@@ -28,8 +28,8 @@ import Link from "next/link";
 export default function SideBar() {
   const [active, setActive] = useState("home");
   return (
-    <div className="w-full h-screen lg:border-r-2 sticky top-0 shrink-0 overflow-hidden scrollbar-hide">
-      <div className="flex flex-col px-4 py-5 justify-between h-full overflow-scroll">
+    <div className="w-full h-screen lg:border-r-2 sticky top-0 shrink-0">
+      <div className="flex flex-col px-4 py-5 justify-between h-full overflow-scroll scrollbar-hide">
         <div>
           <div className="flex justify-center mb-9">
             <Image alt="Logo" src={Logo} />
@@ -166,24 +166,32 @@ export default function SideBar() {
         <div className="flex flex-col items-center gap-4 py-4 lg:hidden">
           <p className="text-text-orange font-semibold">5 Credits left</p>
           <motion.div
-            animate={{
-              backgroundImage: [
-                "linear-gradient(135deg, #f27121, #EE5938)", // Color 1
-                "linear-gradient(135deg, #E94057, #af3e9c)", // Color 2
-                "linear-gradient(135deg, #43cea2, #185a9d)", // Color 3
-                "linear-gradient(135deg, #703be7, #f27121)", // Back to Color 1
-                "linear-gradient(135deg, #f27121, #f27121)", // Back to Color 1
-              ],
-            }}
-            transition={{
-              duration: 8, // Control the duration of the animation
-              ease: "linear",
-              repeat: Infinity, // Repeat infinitely
-              repeatType: "loop",
-            }}
-            className="bg-gradient-to-r from-text-orange from-20% to-bg-main to-100% py-2 px-4 rounded-xl cursor-pointer text-white font-semibold hover:scale-x-95"
+            className="rounded-xl w-full"
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
           >
-            Upgrade plan
+            <motion.div
+              animate={{
+                backgroundImage: [
+                  "linear-gradient(135deg, #f27121, #f27121)",
+                  "linear-gradient(135deg, #f27121, #EE5938)",
+                  "linear-gradient(135deg, #EE5938, #E94057)",
+                  "linear-gradient(135deg, #E94057, #af3e9c)",
+                  "linear-gradient(135deg, #af3e9c, #703Be7)",
+                  "linear-gradient(135deg, #703Be7, #f27121)",
+                  "linear-gradient(135deg, #f27121, #f27121)",
+                ],
+              }}
+              transition={{
+                duration: 6, // Control the duration of the animation
+                ease: "linear",
+                repeat: Infinity, // Repeat infinitely
+                repeatType: "loop",
+              }}
+              className="py-2 px-4 rounded-xl cursor-pointer w-full flex items-center justify-center text-white font-semibold"
+            >
+              Upgrade plan
+            </motion.div>
           </motion.div>
         </div>
         <div className="flex flex-col gap-1">
