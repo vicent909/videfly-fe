@@ -26,16 +26,16 @@ export default function DropdownComponent({ title, data, selected, onClick }: { 
       </div>
       {heading && (
         <motion.div
-          className="mt-1 absolute bg-bg-secondary w-[284px] h-[180px] items-center rounded-xl p-4 gap-3 overflow-scroll scrollbar-hide"
+          className="mt-1 absolute bg-bg-secondary w-[284px] h-[180px] items-center rounded-xl gap-3 overflow-scroll scrollbar-hide"
           initial={{ height: 0 }}
           animate={{ height: heading ? 180 : 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             {data.map((e, i) => {
               return (
                 <p
-                  className={`${e.style} py-3 px-4 rounded-xl hover:bg-text-secondary`}
+                  className={`${e.style} py-3 px-4 hover:bg-bg-notif-hover`}
                   key={i}
                   onClick={() => {
                       setHeading(false);
