@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "@rc-component/color-picker/assets/index.css";
 import Sketch from "@uiw/react-color-sketch";
 import { AddImage, LeftChevron, Plus } from "@/assets";
-import Link from "next/link";
 import LogoComponent from "@/components/LogoComponent";
 import { Modal, ModalContent, useDisclosure } from "@nextui-org/react";
 import ColorPickerComponent from "@/components/ColorPicker";
@@ -276,7 +275,7 @@ export default function MakeKit() {
                   Perubahan yang belum disimpan akan hilang
                 </p>
               </div>
-              <div className="flex gap-4 justify-end w-full">
+              <div className="flex gap-4 justify-center items-center w-full">
                 <motion.div
                   whileTap={{ scale: 0.9 }}
                   whileHover={{ scale: 1.05 }}

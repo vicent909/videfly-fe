@@ -22,13 +22,14 @@ import {
   Setting,
   SettingActive,
 } from "@/assets";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function SideBar() {
   const [active, setActive] = useState("home");
   return (
-    <div className="w-full h-screen px-4 py-5 lg:border-r-2 sticky top-0">
-      <div className="flex flex-col justify-between h-full">
+    <div className="w-full h-screen lg:border-r-2 sticky top-0 shrink-0 overflow-hidden scrollbar-hide">
+      <div className="flex flex-col px-4 py-5 justify-between h-full overflow-scroll">
         <div>
           <div className="flex justify-center mb-9">
             <Image alt="Logo" src={Logo} />
@@ -49,7 +50,19 @@ export default function SideBar() {
           <div className="flex justify-center w-full mb-9">
             <Button className="bg-bg-main text-white btn-main w-full font-semibold">
               Buat Video
-              <AddLogo className="AddLogo stroke-white stroke-2" />
+              <motion.div
+                animate={{
+                  rotate: 360,
+                }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                }}
+              >
+                <AddLogo className="AddLogo stroke-white stroke-2" />
+              </motion.div>
             </Button>
           </div>
           <div className="flex flex-col gap-1">
@@ -150,11 +163,28 @@ export default function SideBar() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 lg:hidden">
+        <div className="flex flex-col items-center gap-4 py-4 lg:hidden">
           <p className="text-text-orange font-semibold">5 Credits left</p>
-          <Button className="w-full bg-gradient-to-r from-text-orange from-20% to-bg-main to-100% text-white font-semibold hover:scale-x-95">
+          <motion.div
+            animate={{
+              backgroundImage: [
+                "linear-gradient(135deg, #f27121, #EE5938)", // Color 1
+                "linear-gradient(135deg, #E94057, #af3e9c)", // Color 2
+                "linear-gradient(135deg, #43cea2, #185a9d)", // Color 3
+                "linear-gradient(135deg, #703be7, #f27121)", // Back to Color 1
+                "linear-gradient(135deg, #f27121, #f27121)", // Back to Color 1
+              ],
+            }}
+            transition={{
+              duration: 8, // Control the duration of the animation
+              ease: "linear",
+              repeat: Infinity, // Repeat infinitely
+              repeatType: "loop",
+            }}
+            className="bg-gradient-to-r from-text-orange from-20% to-bg-main to-100% py-2 px-4 rounded-xl cursor-pointer text-white font-semibold hover:scale-x-95"
+          >
             Upgrade plan
-          </Button>
+          </motion.div>
         </div>
         <div className="flex flex-col gap-1">
           <div
