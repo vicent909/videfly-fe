@@ -1,4 +1,4 @@
-import { Modal, ModalContent, useDisclosure } from "@nextui-org/react";
+import { Modal, ModalContent } from "@nextui-org/react";
 import React, { useState } from "react";
 import ButtonMain from "./ButtonMain";
 import ButtonSecondary from "./ButtonSecondary";
@@ -10,7 +10,7 @@ export default function ModalInput({
 }: {
   isOpen: boolean;
   closeModal: () => void;
-  onClick: Function;
+  onClick: (args: string) => void;
 }) {
   const [data, setData] = useState("");
 
@@ -23,7 +23,7 @@ export default function ModalInput({
         size={"lg"}
       >
         <ModalContent>
-          {(onClose) => (
+          {() => (
             <div className="p-8 flex flex-col gap-9">
               <div className="flex flex-col gap-2">
                 <p>Beri nama Brand Kit anda</p>

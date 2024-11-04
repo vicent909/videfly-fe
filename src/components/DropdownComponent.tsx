@@ -1,5 +1,5 @@
 import { DownChevron } from "@/assets";
-import React, { MouseEventHandler, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 export interface selected {
@@ -7,7 +7,7 @@ export interface selected {
     style: string
 }
 
-export default function DropdownComponent({ title, data, selected, onClick }: { title: string, data: selected[], selected: selected, onClick: Function }) {
+export default function DropdownComponent({ title, data, selected, onClick }: { title: string, data: selected[], selected: selected, onClick: (args: selected) => void }) {
   const [heading, setHeading] = useState(false);
   return (
     <div>

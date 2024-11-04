@@ -1,37 +1,26 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "@rc-component/color-picker/assets/index.css";
 import Sketch from "@uiw/react-color-sketch";
 import {
   AddImage,
-  DownChevron,
   LeftChevron,
-  LogoBoa,
-  Paint,
   Plus,
 } from "@/assets";
 import Link from "next/link";
-import Image from "next/image";
-import ImageDeleteBtn from "@/components/ImageDeleteBtn";
 import LogoComponent from "@/components/LogoComponent";
 import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
   Modal,
   ModalContent,
   useDisclosure,
 } from "@nextui-org/react";
 import ColorPickerComponent from "@/components/ColorPicker";
-import { motion } from "framer-motion";
 import DropdownComponent, { selected } from "@/components/DropdownComponent";
 import ButtonMain from "@/components/ButtonMain";
 import ModalInput from "@/components/ModalInput";
 import { useRouter } from "next/navigation";
 
-export default function page() {
-  const [hex, setHex] = useState("#fff");
+export default function MakeKit() {
   const [data, setData] = useState({
     mainColor: "#fff",
     secondaryColor: "#fff",
@@ -261,11 +250,11 @@ export default function page() {
         className="!w-fit"
       >
         <ModalContent>
-          {(onClose) => (
+          {() => (
             <>
               <div className="h-fit">
                 <Sketch
-                  color={hex}
+                  color={'#fff'}
                   disableAlpha={true}
                   onChange={(color) => handleClick(color.hex)}
                 />

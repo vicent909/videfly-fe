@@ -9,7 +9,7 @@ export default function ButtonMain({
   isLoading = false,
 }: {
   name: string;
-  onClick: Function;
+  onClick: () => void;
   isLoading: boolean;
 }) {
   return (
