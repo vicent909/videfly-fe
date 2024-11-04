@@ -6,11 +6,13 @@ import ButtonSecondary from "./ButtonSecondary";
 export default function ModalInput({
   isOpen,
   closeModal,
-  onClick
+  onClick,
+  title
 }: {
   isOpen: boolean;
   closeModal: () => void;
   onClick: (args: string) => void;
+  title: string
 }) {
   const [data, setData] = useState("");
 
@@ -26,7 +28,7 @@ export default function ModalInput({
           {() => (
             <div className="p-8 flex flex-col gap-9">
               <div className="flex flex-col gap-2">
-                <p>Beri nama Brand Kit anda</p>
+                <p>{title}</p>
                 <input
                   type="text"
                   value={data}

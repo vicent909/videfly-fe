@@ -1,22 +1,20 @@
 "use client";
 import BrandKit from "@/components/BrandKit";
 import ButtonMain from "@/components/ButtonMain";
+import ButtonSecondary from "@/components/ButtonSecondary";
 import Kit from "@/components/Kit";
 import ModalDownload from "@/components/ModalDownload";
-import {
-  useDisclosure,
-  Modal,
-  ModalContent,
-} from "@nextui-org/react";
+import { useDisclosure, Modal, ModalContent } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
   const [active, setActive] = useState("all");
   const route = useRouter();
-  const [modalDownload, setModalDownload] = useState(false)
+  const [modalDownload, setModalDownload] = useState(false);
+  const [back, setBack] = useState(false)
 
-  const data = [
+  const dataFull = [
     {
       title: "Creative Vibes",
       images:
@@ -74,6 +72,46 @@ export default function Home() {
       colors: ["#D08C60", "#A9C2D8", "#F5F5DC"],
     },
   ];
+
+  const dataHalf = [
+    {
+      title: "Floral Romance",
+      images:
+        "https://s3-alpha-sig.figma.com/img/0a1c/49c1/026eacf058dc4b5c342b680e47ea6501?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oC1im9CJL27oPxN4mjaB79Bd2~ibCTCRIPAanoK962tQQFOMLGQw8x25mGQwiCTJKf2-eAhGEiOXAY2QwKOSeKypxgDs9Ix3cObgmhrJHzhjLEFFKjpdQ0gdkEBR4ePkcRJZkFhRvhZlQtpYT6J6Bi3oAtKh5ChS1qi0AIKKvKraAVxmbzSJT5~DhSCTmMb4yA2xYjEn6mMWpaXNtClrs54BUHsJjbNTXJT05H0BFTE6GMPMfRYYMHlP88jCgRlI~n1o8vJIEOpaED62ZP-0CF7GA44KUaCHrowQfCgvq-kVaFgIyaBc6RfdmsFtd~ztQZIKAUIF~D-~6BK7vOmi~A__",
+      music: "Acoustic Love Song",
+      colors: ["#C3A3E6", "#FFC4A3", "#FFF5E4"],
+    },
+    {
+      title: "Minimalis Zen",
+      images:
+        "https://s3-alpha-sig.figma.com/img/6548/2fa8/405f3cece1fef9883f423d9367884896?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p4fuK1Pka3lrdXn2f4o-l~JAo~E1nR1mNJAT-XNHJEE6ybWYQe2uy~VuhtJqSvwB58rSjwW2nUjPdvowdhu3WielRzNACeINQIG3wAheiy1YTYOi04vTH0yQGnMSRYSHF1MhkUMhqUauJfoMM6UsDIVFtzpJmuogsaTUids5iDhxdrCrxn~4y2CSwYhEho8x87~Oj15oc4zdMrPublcvC6~jLQ44C1YNFfNHBuxHa~g1fs020H-h4pdJCZY4V6VXRbQq-d5lnGKHy7GiyIpo5j4~oJqIpIePCQr75khdiKQqY6NkltbxS-g3rOx-Rh2W7sSYWYj5TMMboLiQ0zqLlQ__",
+      music: "Calm Instrumental",
+      colors: ["#9CBA9E", "#F5F5F5", "#D3D3D3"],
+    },
+    {
+      title: "Urban Jungle",
+      images:
+        "https://s3-alpha-sig.figma.com/img/7bb6/964e/74a522a1c23770b66eaebb0ea82c9d21?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LJcP-KpU1P8N1cbsZFoFfp8oBiKTqKJx90g5OSvQhItql8AFIgHSr6r69xfLwmT9qDfmkK99uQ1YQqcsLKYepyf5hrg2mLfxLLXdIeaaiMG2EG466rjnDIjVTecwlVpYCHtbRyflAYiEH~QTMMHJ58w6r9OTMklJkTVYf9N4Apxb3s83uRTGpSIY5LsDAQtlBKpvpeoNZBUGk5-UQC6tk7zmfOfNfUFw0mceI8v1yKY6rK0gmt67KnghmDdIoA4jcx83FR0wLQvqG2iq63pd4YkkKFdFQtRRZuiOPvdIfhJi52115oRQlqH9tc2eLEEx1QOTtoJ9oXV6pXvIQ3hlrg__",
+      music: "Chill Electronic",
+      colors: ["#014421", "#6B4226", "#F5F5DC"],
+    },
+    {
+      title: "Vintage",
+      images:
+        "https://s3-alpha-sig.figma.com/img/bc75/9a70/94c5392d5bd6596aac95b0253d6621bb?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EzYsE13ZeLki2gT2hsbh~eNoS69V5Ic4j-0-D4i717~ReVtsbwHi9fdFLvlhyBe4I68oEUQtRR2fJrSe1spx9iurUuJkcf1NGxJcqHvcd~xOV9pc4~aHUAd6krN1Bko2McWzWKX48hz4szgpfdM8pQYAakCDgKvFGn4KIyACItBFKN3zqfxFEHJpYFDiaYJ0taI9jVmFNLntmOebRgGUfZFAmEs1f4QNQfDAuUnS9540DxOuLLHdd3nwf~OMQCfA4VJZGC1TjUJvHe7WwPUxst30n4qOKsaInekGAl7xwnRy1fZD0nWH~dFzoAyYg8nAzQhi92237g43z6RZYhzktA__",
+      music: "Everything Strong",
+      colors: ["#DBC997", "#432115", "#000000"],
+    },
+    {
+      title: "Beauty Dream",
+      images:
+        "https://s3-alpha-sig.figma.com/img/77cf/efc1/9b603ec65fd2ae12756da212d81885ef?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aLzdHmPVmUOXPe4vhn9fQJCszGpO5SEK8bnKgLUl0d8VJsS87DhByyLlD7CdyiaVQRA1aqTHbXLymc4HQ8lVCO2KGGuOmbKMWS-z3SLz6AGc1RJ29hH1VA-y8oLw36AQsfw371MYjbiB26Dq3rQIqXs3dcqJEqbLJU2bJ-80j5Oz8oqJiIpR41K9kzqJ9epKLHAAY7BbXSGwK-d6VHIeQ3YVS8wvBjC6PDTMC6kTJBqihSoCAYtYRG8jHZPc-zG9b8UxYJYYrdRqFF86gf1yU-O3~61crefRMoNh3yeIjq2YhEimllzXb34a5e6uRaHn-8Uz4jbIJw5IdZxsD1Ty-w__",
+      music: "Indie Folk",
+      colors: ["#D08C60", "#A9C2D8", "#F5F5DC"],
+    },
+  ];
+
+  const data = active === "all" ? dataFull : dataHalf;
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div className="px-8 lg:px-11 py-4 lg:py-9 min-h-screen">
@@ -103,7 +141,7 @@ export default function Home() {
               size={"5xl"}
               isOpen={isOpen}
               onClose={onClose}
-              className="!h-3/4 overflow-scroll scrollbar-hide"
+              className="!h-3/4 overflow-scroll lg:overflow-hidden"
             >
               <ModalContent>
                 {() => (
@@ -198,7 +236,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="p-6 pt-0 lg:pt-6">
-                          <div className="flex justify-end">
+                          <div className="flex justify-end pb-2 border-b-2">
                             <label className="input input-bordered flex items-center gap-2 bg-bg-secondary h-10 px-4 rounded-xl w-full lg:w-1/3">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -219,10 +257,13 @@ export default function Home() {
                               />
                             </label>
                           </div>
-                          <div className="pt-4 flex flex-wrap overflow-scroll scrollbar-hide h-full content-start gap-6">
+                          <div className="pt-4 flex flex-wrap overflow-scroll scrollbar-hide h-full content-start justify-between gap-y-4">
                             {data.map((e, i) => {
                               return (
-                                <div key={i}>
+                                <div
+                                  key={i}
+                                  className={i === data.length - 1 ? "" : ""}
+                                >
                                   <Kit
                                     key={i}
                                     title={e.title}
@@ -233,6 +274,30 @@ export default function Home() {
                                 </div>
                               );
                             })}
+                            {data.map((e, i) => {
+                              return (
+                                <div
+                                  key={i}
+                                  className={i === data.length - 1 ? "" : ""}
+                                >
+                                  <Kit
+                                    key={i}
+                                    title={e.title}
+                                    images={e.images}
+                                    music={e.music}
+                                    colors={e.colors}
+                                  />
+                                </div>
+                              );
+                            })}
+                            <div className="invisible lg:h-44">
+                              <Kit
+                                title={"empty"}
+                                images={"empty"}
+                                music={"empty"}
+                                colors={["empty"]}
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -246,7 +311,7 @@ export default function Home() {
           </>
         </div>
         <div className="flex gap-4 w-full flex-nowrap overflow-scroll scrollbar-hidden pb-2 ">
-          {data.map((e) => {
+          {dataFull.map((e) => {
             return (
               <Kit
                 key={e.title}
@@ -269,7 +334,10 @@ export default function Home() {
         </p>
         <div className="mt-4">
           <BrandKit onDownloadClick={() => setModalDownload(true)} />
-          <ModalDownload isOpen={modalDownload} closeModal={() => setModalDownload(false)} />
+          <ModalDownload
+            isOpen={modalDownload}
+            closeModal={() => setModalDownload(false)}
+          />
         </div>
       </div>
       <div className="mt-4">
@@ -279,7 +347,26 @@ export default function Home() {
           isLoading={false}
         />
       </div>
-      
+      <Modal
+        placement="center"
+        isOpen={back}
+        onClose={() => setBack(false)}
+        size={"lg"}
+      >
+        <ModalContent>
+          {() => (
+            <div className="p-8 flex flex-col gap-9">
+              <div className="flex flex-col gap-2">
+                <p>Tinggalkan pembuatan Brand Kit</p>
+              </div>
+              <div className="flex gap-4 justify-end">
+                <ButtonMain name="Simpan" onClick={() => setBack(false)} isLoading={false} />
+                <ButtonSecondary title="Batal" onClick={() => console.log('a')} />
+              </div>
+            </div>
+          )}
+        </ModalContent>
+      </Modal>
     </div>
   );
 }

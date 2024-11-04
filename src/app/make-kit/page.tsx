@@ -2,29 +2,22 @@
 import React, { useState } from "react";
 import "@rc-component/color-picker/assets/index.css";
 import Sketch from "@uiw/react-color-sketch";
-import {
-  AddImage,
-  LeftChevron,
-  Plus,
-} from "@/assets";
+import { AddImage, LeftChevron, Plus } from "@/assets";
 import Link from "next/link";
 import LogoComponent from "@/components/LogoComponent";
-import {
-  Modal,
-  ModalContent,
-  useDisclosure,
-} from "@nextui-org/react";
+import { Modal, ModalContent, useDisclosure } from "@nextui-org/react";
 import ColorPickerComponent from "@/components/ColorPicker";
 import DropdownComponent, { selected } from "@/components/DropdownComponent";
 import ButtonMain from "@/components/ButtonMain";
 import ModalInput from "@/components/ModalInput";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function MakeKit() {
   const [data, setData] = useState({
-    mainColor: "#fff",
-    secondaryColor: "#fff",
-    neutralColor: "#fff",
+    mainColor: "#C65D72",
+    secondaryColor: "#F9EEF1",
+    neutralColor: "#2D2D2D",
     headingLight: "#fff",
     headingDark: "#fff",
     bodyLight: "#fff",
@@ -70,17 +63,18 @@ export default function MakeKit() {
 
   const [modal, setModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [back, setBack] = useState(false);
   const route = useRouter();
 
   return (
     <div className="px-8 lg:px-11 py-4 lg:py-9 min-h-screen">
-      <Link
-        href={"/"}
-        className="flex gap-4 px-3 py-2 w-fit hover:underline decoration-text-violet1"
+      <div
+        onClick={() => setBack(true)}
+        className="flex gap-4 px-3 py-2 w-fit hover:underline decoration-text-violet1 cursor-pointer"
       >
         <LeftChevron />
         <p className="text-text-violet1">Kembali</p>
-      </Link>
+      </div>
       <div className="mt-9">
         <div>
           <p className="font-semibold text-lg">Logo</p>
@@ -232,13 +226,14 @@ export default function MakeKit() {
           />
           <ModalInput
             isOpen={modal}
+            title="Beri nama Brand Kit anda"
             closeModal={() => {
               setModal(false);
               setIsLoading(false);
             }}
             onClick={(e: string) => {
               console.log(e);
-              route.push("/")
+              route.push("/");
             }}
           />
         </div>
@@ -254,12 +249,52 @@ export default function MakeKit() {
             <>
               <div className="h-fit">
                 <Sketch
-                  color={'#fff'}
+                  color={"#fff"}
                   disableAlpha={true}
                   onChange={(color) => handleClick(color.hex)}
                 />
               </div>
             </>
+          )}
+        </ModalContent>
+      </Modal>
+      <Modal
+        placement="center"
+        isOpen={back}
+        onClose={() => setBack(false)}
+        size={"lg"}
+        className="w-fit"
+      >
+        <ModalContent>
+          {() => (
+            <div className="p-8 flex flex-col gap-9 items-center">
+              <div className="flex flex-col gap-2">
+                <p className="font-semibold text-xl text-center text-text-dark">
+                  Tinggalkan pembuatan Brand Kit?
+                </p>
+                <p className="text-sm text-center text-text-gray">
+                  Perubahan yang belum disimpan akan hilang
+                </p>
+              </div>
+              <div className="flex gap-4 justify-end w-full">
+                <motion.div
+                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setBack(false)}
+                  className="h-[40px] w-[132px] lg:w-[144px] xl:w-[180px] cursor-pointer bg-bg-main text-white px-4 py-2 text-sm rounded-xl hover:bg-hover-main flex items-center justify-center"
+                >
+                  <p className="text-center">Batal</p>
+                </motion.div>
+                <motion.div
+                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => route.push("/")}
+                  className="h-[40px] w-[132px] lg:w-[144px] xl:w-[180px] cursor-pointer bg-bg-secondary px-4 py-2 text-sm rounded-xl flex items-center justify-center"
+                >
+                  <p className="text-center">Kembali</p>
+                </motion.div>
+              </div>
+            </div>
           )}
         </ModalContent>
       </Modal>
